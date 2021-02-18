@@ -42,10 +42,13 @@ public class Card {
         this.number = _number;
     }
 
-
+    /**
+     * カードの数字を取得するメソッド
+     */
     public int getNumber(){
         return number;
     }
+    
     
 
 }
