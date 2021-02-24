@@ -11,7 +11,7 @@ public class Hand {
     /**手札のカードを入れるリスト
      * 
      */
-    private ArrayList hand_ = new ArrayList();
+    private ArrayList hand = new ArrayList();
 
 
     /**
@@ -21,7 +21,7 @@ public class Hand {
     public void addCard(Card _card){
          
         //カードをリストの一番後ろに追加
-        hand_.add(_card);
+        hand.add(_card);
     }
 
     /**
@@ -29,7 +29,7 @@ public class Hand {
      * @return 引いたカード
      */
     public Card pickCard(){
-        Card pickedCard = (Card) hand_.remove(0);
+        Card pickedCard = (Card) hand.remove(0);
 
         return pickedCard;
     }
@@ -41,7 +41,70 @@ public class Hand {
 
     }
 
+    /**
+     * 手札のカードの枚数を数えるメソッド
+     * @return　手札のカードの枚数
+     */
     public int getNumverOfHandCards(){
-        return hand_.size();
+        return hand.size();
     }
+
+    /**
+     * 同じ数のカードを探すメソッド
+     * 
+     * @return 同じ数字のカード
+     */
+    public Card[] findSameNumberCards(){
+        int numberOfCards = hand.size();
+        Card[] sameCards = null;
+
+        //手札にカードが一枚もない場合は何もしない
+        if(numberOfCards > 0){
+
+            //最後に追加されたカードを取得
+            int lastIndex = numberOfCards - 1;
+            Card lastAddedCard = (Card) hand.get(lastIndex);
+
+            //最後に追加されたカードの数字を取得
+            int lastAddedCardNumber = lastAddedCard.getNumber();
+
+            for(int index = 0; index < lastIndex; index++){
+                Card card = (Card) hand.get(index);
+                if(card.getNumber() == lastAddedCardNumber){
+                    
+                    //最後に追加されたカードと同じ数字が見つかると、その組み合わせをsameCardsに格納しループを抜ける
+                    sameCards = new Card[2];
+                    sameCards[0] = (Card) hand.remove(lastIndex);
+                    sameCards[1] = (Card) hand.remove(index);
+
+                    break;
+                }
+                //同じ組み合わせがない時にはsameCardsはnullのまま
+            }
+        }
+
+        return sameCards;
+    }
+
+    /**
+     * 手札を文字列で返すメソッド
+     * 
+     * @return　手札のカードの文字列表現
+     */
+
+     public String toString(){
+        StringBuffer string = new StringBuffer();
+
+        int size = hand.size();
+        if(size > 0){
+            for(int index = 0; index < size; index++){
+                Card card = (Card) hand.get(index);
+                string.append(card);
+                string.append(" ");
+            }
+        }
+
+        return string.toString();
+
+     }
 }
