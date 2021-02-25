@@ -11,7 +11,7 @@ public class Hand {
     /**手札のカードを入れるリスト
      * 
      */
-    private ArrayList hand = new ArrayList();
+    private ArrayList<Card> hand = new ArrayList<Card>();
 
 
     /**
@@ -38,6 +38,22 @@ public class Hand {
      * 手持ちのカードをシャッフルするメソッド
      */
     public void shuffle(){
+        //手札の枚数を取得
+        int number = hand.size();
+
+        //カードを抜き出す位置
+        int position;
+
+        //カードをランダムに抜き取り、最後に加える動作を繰り返す
+        for(int count = 0; count < number * 2; count++ ){
+            //ランダムな位置から一枚抜きとる
+            position = (int) (Math.random() * number);
+            Card pickedCard = (Card) hand.remove(position);
+
+            //抜き取ったカードを最後に加える
+            hand.add(pickedCard);
+
+        }
 
     }
 

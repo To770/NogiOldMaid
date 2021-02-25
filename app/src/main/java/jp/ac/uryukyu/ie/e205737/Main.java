@@ -1,8 +1,4 @@
-import jp.ac.uryukyu.ie.e205737.Card;
-import jp.ac.uryukyu.ie.e205737.Hand;
-import jp.ac.uryukyu.ie.e205737.Master;
-import jp.ac.uryukyu.ie.e205737.Player;
-import jp.ac.uryukyu.ie.e205737.Table;
+package jp.ac.uryukyu.ie.e205737;
 
 /**
  * ババ抜きをするメインクラス

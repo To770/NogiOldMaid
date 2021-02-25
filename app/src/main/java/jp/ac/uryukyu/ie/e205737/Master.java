@@ -10,7 +10,9 @@ public class Master {
     private ArrayList players = new ArrayList();
 
     public void preparGame(Hand cards){
-        System.out.println("『カードを配ります』");
+     /**System.out.println("『設楽』\n ドンッ！！\n さぁ始まりました！乃木坂工事中スペシャル！\n 司会のバナナマンですよろしくお願いします！\n 日村さん本日の予定をお願いします。\n");
+        System.out.println("『日村』\n 乃木坂46ババ抜き最弱女王決定戦！\n");
+        System.out.println("『設楽』\n と言うことで、早速始めていきましょう！\n それではカードを配ります。\n"); */
         
         //トランプをシャッフルする
         cards.shuffle();
@@ -49,12 +51,13 @@ public class Master {
             Player nextPlayer = (Player) players.get(nextPlayerIndex);
 
             //プレイヤーを指名する
-            System.out.println("\n" + player + "さんの番です。");
+            System.out.println("\n" + player + "の番です。");
             player.Play(nextPlayer);
         }
         //プレイヤーが最後の1人になるとループを抜ける
         System.out.println("『ババ抜きを終了しました』");
     }
+
     /**
      * 上りを宣言するメソッド
      * 
@@ -63,7 +66,7 @@ public class Master {
     public void declareWin(Player winner){
         
         //上がったプレイヤー
-        System.out.println(winner + "さんが上がりました!");
+        System.out.println(winner + "が上がりました!");
 
         //上がったプレイヤーをリストから外す
         players.remove(players.indexOf(winner));
@@ -71,7 +74,9 @@ public class Master {
         //残りプレイヤーが1人になると敗者を表示する
         if(players.size() == 1){
             Player loser = (Player) players.get(0);
-            System.out.println(loser + "さんの負けです");
+            System.out.println(loser + "の負けです");
+        /** System.out.println("『設楽』\n 乃木坂46 ババ抜き最弱女王は" + loser + "です！");
+            System.out.println(loser + "弱いから"  + "罰ポイント＋２ね" ); */
         }
     }
 

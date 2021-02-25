@@ -39,7 +39,10 @@ public class Player {
         Card pickedCard = nextHand.pickCard();
 
         //引いたカードの結果を表示
-        System.out.println(this + ":" + nextPlayer + "さんから " + pickedCard + " を引きました");
+        System.out.println(this + ":" + nextPlayer + "から " + pickedCard + " を引きました");
+          
+        //引いたカードを表示したい時にはここを消す
+        //System.out.println(this + ":" + nextPlayer + "からカードを引きました");  
 
         //引いたカードを自分の手札に加えて、同じカードがあればそれを破棄する。
         dealCard(pickedCard);
@@ -102,7 +105,7 @@ public class Player {
      * プレイヤーの名前を返すメソッド
      * @return プレイヤーの名前
      */
-    public String toSteString(){
+    public String toString(){
         return name;
     }
 }
